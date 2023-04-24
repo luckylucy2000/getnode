@@ -1,0 +1,6 @@
+document.documentElement.scrollHeight ==> 浏览器所有内容高度
+document.body.scrollHeight ==> 浏览器所有内容高度
+document.documentElement.scrollTop ==> 浏览器滚动部分高度
+document.body.scrollTop ==>始终为0
+document.documentElement.clientHeight ==>浏览器可视部分高度
+document.body.clientHeight ==> 浏览器所有内容高度
