@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    <meta name="auther" content="fq" />
+    <title>获取鼠标坐标</title>
+</head>
+<body>
+<script type="text/javascript">
+    function mousePosition(ev){
+        if(ev.pageX || ev.pageY){
+            return {x:ev.pageX, y:ev.pageY};
+        }
+        return {
+            x:ev.clientX + document.body.scrollLeft - document.body.clientLeft,
+            y:ev.clientY + document.body.scrollTop - document.body.clientTop
+        };
+    }
+    function mouseMove(ev){
+        ev = ev || window.event;
+        var mousePos = mousePosition(ev);
+        document.getElementById('xxx').value = mousePos.x;
+        document.getElementById('yyy').value = mousePos.y;
+    }
+    document.onmousemove = mouseMove;
+</script>
+X:<input id="xxx" type="text" /> Y:<input id="yyy" type="text" />
+</body>
+</html>  
+
+注释：
+1.documentElement 属性可返回文档的根节点。
+2.scrollTop() 为滚动条向下移动的距离
+3.document.documentElement.scrollTop 指的是滚动条的垂直坐标
+4.document.documentElement.clientHeight 指的是浏览器可见区域高度
